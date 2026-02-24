@@ -69,4 +69,17 @@ public class PokemonTest {
         // Then
         assertThat(resultat).isFalse();
     }
+
+    @Test
+    public void premier_serait_vainqueur_avec_attaque_egale_et_defense_egale(){
+        // Given
+        Pokemon pokemon1 = ConstructeurDePokemon.unPokemon().avecAttaque(500).avecDefense(500).construire();
+        Pokemon pokemon2 = ConstructeurDePokemon.unPokemon().avecAttaque(500).avecDefense(500).construire();
+
+        // When
+        boolean resultat = pokemon1.estVainqueurContre(pokemon2);
+
+        // Then
+        assertThat(resultat).isTrue();
+    }
 }
