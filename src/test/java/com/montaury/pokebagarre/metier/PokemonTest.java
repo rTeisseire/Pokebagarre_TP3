@@ -17,4 +17,17 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class PokemonTest {
 
+    @Test
+    public void premier_serait_vainqueur_avec_meilleur_attaque(){
+        // Given
+        Pokemon pokemon1 = ConstructeurDePokemon.unPokemon().avecAttaque(500).avecDefense(400).construire();
+        Pokemon pokemon2 = ConstructeurDePokemon.unPokemon().avecAttaque(400).avecDefense(400).construire();
+
+        // When
+        boolean resultat = pokemon1.estVainqueurContre(pokemon2);
+
+        // Then
+        assertThat(resultat).isTrue();
+
+    }
 }
