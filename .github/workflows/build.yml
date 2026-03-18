@@ -31,3 +31,12 @@ jobs:
           name: Test Results           # Name of the check run which will be created
           path: build/test-results/test/*.xml   # Path to test results
           reporter: java-junit        # Format of test results
+      - name: JaCoCo Code Coverage Report
+        uses: PavanMudigwornia/jacoco-reporter@v5.0
+        with:
+          coverage_results_path: build/reports/jacoco/test/jacocoTestReport.xml
+          coverage_report_name: Coverage
+          coverage_report_title: JaCoCo Coverage Report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          skip_check_run: false
+          minimum_coverage: 50
